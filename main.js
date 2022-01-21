@@ -58,3 +58,5 @@ while (entrada < 5) {
     alert(entrada);
     entrada = prompt("Ingresa otro numero: ");
 }
+
+// hola
