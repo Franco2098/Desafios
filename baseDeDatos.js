@@ -8,6 +8,9 @@ let numTarj = 0
 let numPin = 0
 let total = 0
 let cuota = 0
+let carrito = []
+let sumapre = 0
+let carrito1 = []
 
 
 class Juegos {

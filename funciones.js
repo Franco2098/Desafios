@@ -1,7 +1,7 @@
 
-const validar = (numMin, num, numMax) => {
+const validar = (numMin, num, numMax, msj) => {
     while ((numMin > num) || (num > numMax) || (isNaN (num) == true ) || (num == " ")){
-        num = parseInt(prompt (`El dato ingresado no es un numero o no corresponde, por favor ingresa otro numero`))    
+        num = parseInt(prompt (msj))    
     }
     return parseInt(num)
 }
@@ -14,17 +14,26 @@ const pagos = () => {
     return (nombre, dni, numTarj, numPin)
 }
 
-const cuotas = (cantCuotas, cantProduct1, pre) => {
+const cuotas = (cantCuotas, pre) => {
     while ((cantCuotas !== 3)  && (cantCuotas !== 6) && (cantCuotas !== 12)) {
         alert ("El numero de cuotas ingresado no es el correcto")
         cantCuotas = parseInt(prompt("Puedes elegir pagar en 3 con interes del 10%, 6 con interes del 30% o 12 cuotas con interes del 60%"))
     }
     if (cantCuotas === 3){
-        total = (cantProduct1 * pre) * 1.1
+        total = pre * 1.1
     } else if (cantCuotas === 6) {
-        total = (cantProduct1 * pre) * 1.3
+        total = pre * 1.3
     } else if (cantCuotas === 12){
-        total = (cantProduct1 * pre) * 1.6
+        total = pre * 1.6
 }
     return (total)
 }
+
+const cantTotal = () => {
+    for (const productos of carrito1){
+        sumapre += productos.valor
+    } 
+    return sumapre
+
+}
+
