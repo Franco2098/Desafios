@@ -11,20 +11,15 @@ let cuota = 0
 let carrito = []
 let sumapre = 0
 let carrito1 = []
+let arrayAlert = []
+let buscar = ""
+let filtrar = ""
+let juegos = ""
 
 
-class Juegos {
-constructor (nombre, cantidad, precio) {
-    this.nombre = nombre;
-    this.cantidad = cantidad;
-    this.precio = precio
-}
-}
-
-
-const product1 = new Juegos ("Grand theft auto V", 15, 1000)
-const product2 = new Juegos ("Assassin's creed valhalla", 7, 3000)
-const product3 = new Juegos ("Red Dead Redemption 2", 8, 1500)
-const product4 = new Juegos ("It Take Two", 10, 2000)
-const product5 = new Juegos ("Cyberpunk 2077", 6, 2500)
-
+const productos = [{id: 1, nombre: "Grand Theft Auto V", cantidad: 15, precio: 1000, categoria: "accion"},
+{id: 2, nombre: "Assassin's Creed Valhalla", cantidad: 7, precio: 3000, categoria: "accion"},
+{id: 3, nombre: "Red Dead Redemption 2", cantidad: 8, precio: 1500, categoria: "aventura"},
+{id: 4, nombre: "It Take Two", cantidad: 10, precio: 2000, categoria: "multijugador"},
+{id: 5, nombre: "Cyberpunk 2077", cantidad: 6, precio: 2500, categoria: "rol"},
+]

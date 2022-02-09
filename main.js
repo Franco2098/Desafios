@@ -1,105 +1,108 @@
-alert("Bienvenido a Tenno Games")
+alert("Bienvenido a Tenno Games");
 
 do{
   numMenu = parseInt(prompt(`1. Mostrar productos
-2. Elegir producto que desea comprar
-3. Carrito
-4. Quitar un producto del carrito
-5. Elegir metodo de pago
-6. Salir`))
+2. Buscar un producto
+3. Filtrar productos de la misma categoria  
+4. Elegir producto que desea comprar
+5. Carrito
+6. Quitar un producto del carrito
+7. Elegir metodo de pago
+8. Salir`));
 
 switch (numMenu) {
 
     case 1:
-      alert(` 1. ${product1.nombre} $${product1.precio}\n 2. ${product2.nombre} $${product2.precio} 
- 3. ${product3.nombre} $${product3.precio}\n 4. ${product4.nombre} $${product4.precio}\n 5. ${product5.nombre} $${product5.precio}\n`);
+      mostrar(arrayAlert, productos);
+      alert(arrayAlert.join(""));
+      arrayAlert.splice(0,arrayAlert.length);
       break;
     
     case 2:
-      numProduct = parseInt(prompt ("Ingresa el numero del juego que quieres Comprar"));
-      numProduct = validar(1,numProduct,5,"El numero ingresado no corresponde, Porfavor ingresa un numero nuevamente");
-      
-       if ((numProduct === 1) && (product1.cantidad != 0)) {
-       cantProduct = prompt (`Del ${product1.nombre} hay ${product1.cantidad} unidades, eliga la cantidad que desea llevar`);
-       cantProduct = validar(1,cantProduct,product1.cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
-       carrito.push(`Juego: ${product1.nombre}, cantidad: ${cantProduct}, Precio: ${product1.precio * cantProduct}\n`);
-       carrito1.push({id: 1, nombre: product1.nombre, cantidad: cantProduct, valor: product1.precio * cantProduct});
-       product1.cantidad -= cantProduct; 
-      } 
-       else if ((numProduct === 2) && (product2.cantidad != 0)) {
-        cantProduct = prompt (`Del ${product2.nombre} hay ${product2.cantidad} unidades, eliga la cantidad que desea llevar`);
-        cantProduct = validar(1,cantProduct,product2.cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
-        carrito.push(`Juego: ${product2.nombre}, cantidad: ${cantProduct}, Precio: ${product2.precio * cantProduct}\n`);
-        carrito1.push({id: 2, nombre: product2.nombre, cantidad: cantProduct, valor: product2.precio * cantProduct});
-        product2.cantidad -= cantProduct;          
-      }
-       else if ((numProduct === 3) && (product3.cantidad != 0)){
-        cantProduct = prompt (`Del ${product3.nombre} hay ${product3.cantidad} unidades, eliga la cantidad que desea llevar`);
-        cantProduct = validar(1,cantProduct,product3.cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
-        carrito.push(`Juego: ${product3.nombre}, cantidad: ${cantProduct}, Precio: ${product3.precio * cantProduct}\n`);
-        carrito1.push({id: 3, nombre: product3.nombre, cantidad: cantProduct, valor: product3.precio * cantProduct});
-        product3.cantidad -= cantProduct;      
-       }
-       else if ((numProduct === 4) && (product4.cantidad != 0)){
-        cantProduct = prompt (`Del ${product4.nombre} hay ${product4.cantidad} unidades, eliga la cantidad que desea llevar`);
-        cantProduct = validar(1,cantProduct,product4.cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
-        carrito.push(`Juego: ${product4.nombre}, cantidad: ${cantProduct}, Precio: ${product4.precio * cantProduct}\n`);
-        carrito1.push({id: 4, nombre: product4.nombre, cantidad: cantProduct, valor: product4.precio * cantProduct});
-        product4.cantidad -= cantProduct;    
-       }
-       else if ((numProduct === 5) && (product5.cantidad != 0)) {
-        cantProduct = prompt (`Del ${product5.nombre} hay ${product5.cantidad} unidades, eliga la cantidad que desea llevar`);
-        cantProduct = validar(1,cantProduct,product5.cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
-        carrito.push(`Juego: ${product5.nombre}, cantidad: ${cantProduct}, Precio: ${product5.precio * cantProduct}\n`);
-        carrito1.push({id: 5, nombre: product5.nombre, cantidad: cantProduct, valor: product5.precio * cantProduct});
-        product5.cantidad -= cantProduct;  
+       buscar = prompt("Ingrese el nombre del juego que desea buscar");
+       let resultado = productos.find((el) => 
+       {let element = el.nombre.toLowerCase()
+        let element1 = buscar.toLowerCase() 
+        if (element == element1){
+          return el.nombre
+        }
+      })
+
+       if (resultado == undefined){
+         alert("No se encontro ninguna coincidencia");
        }
        else {
-         alert("Disculpa pero ya no hay stock de ese producto")
+         alert(`${resultado.id} - Nombre: ${resultado.nombre} - Cantidad: ${resultado.cantidad} - Precio: ${resultado.precio}\n`);
+       }
+       break;
+      
+    case 3:
+      filtrar = prompt("Ingrese una categoria de videojuegos");
+      let resultado1 = productos.filter((el) => el.categoria.includes(filtrar));
+
+      if (resultado1.length == 0){
+        alert("No se encontro ninguna coincidencia");
+      }
+      else {
+        juegos = ""
+        for (const product of resultado1){ 
+          juegos += (`${product.id} - Nombre: ${product.nombre} - Cantidad: ${product.cantidad} - Precio: ${product.precio}\n`);
+        }
+        alert(juegos)
+      }
+      break;
+
+    case 4:
+      numProduct = parseInt(prompt (`Ingresa el numero del juego que quieres Comprar`));
+      numProduct = validar(1,numProduct,5,"El numero ingresado no corresponde, Porfavor ingresa un numero nuevamente");
+      numProduct -= 1;
+
+      if (productos[numProduct].cantidad !=0){
+        cantProduct = prompt (`Del ${productos[numProduct].nombre} hay ${productos[numProduct].cantidad} unidades, eliga la cantidad que desea llevar`);
+        cantProduct = validar(1,cantProduct,productos[numProduct].cantidad, "La cantidad de productos ingresada no corresponde, por favor ingresa nuevamente la cantidad");
+        carrito1.push({id: productos[numProduct].id, nombre: productos[numProduct].nombre, cantidad: cantProduct, precio: productos[numProduct].precio * cantProduct});
+        productos[numProduct].cantidad -= cantProduct;
+      }
+      else {
+         alert("Disculpa pero ya no hay stock de ese producto");
          break;
        }
 
       alert("Perfecto ya seleccionaste tu/s juego/s.");
       break;
     
-    case 3:
-      if (carrito.length == 0){
-        alert("No hay productos en el carrito")
+    case 5:
+      if (carrito1.length == 0){
+        alert("No hay productos en el carrito");
         break;
       }
+      mostrar(carrito, carrito1);
       alert(carrito.join(""));
+      carrito.splice(0,carrito.length);
       break;
 
-    case 4:
-       elim = parseInt(prompt(`Estos son los productos en tu carrito\n ${carrito.join("")} Ingresa el numero segun el orden en el carrito del producto que deseas eliminar`));
+    case 6:
+      if (carrito1.length == 0){
+        alert("No hay productos en el carrito")
+        break;
+      }  
+       mostrar(carrito, carrito1);
+       elim = parseInt(prompt(`Estos son los productos en tu carrito\n ${carrito.join("")}Ingresa el numero segun el orden en el carrito del producto que deseas eliminar`));
        elim = validar(1,elim,carrito.length,"El numero ingresado no corrsponde a ningun producto en tu carrito. Porfavor ingresa otro numero");
-       elim -= 1
-       carrito.splice(elim,1);
-
-       if (carrito1[elim].id === 1) {
-        product1.cantidad += carrito1[elim].cantidad 
-        } 
-        else if (carrito1[elim].id === 2) {
-        product2.cantidad += carrito1[elim].cantidad           
-        }
-        else if (carrito1[elim].id === 3) {
-        product3.cantidad += carrito1[elim].cantidad        
-        }
-        else if (carrito1[elim].id === 4) {
-        product4.cantidad += carrito1[elim].cantidad        
-        }
-        else if (carrito1[elim].id === 5) {
-        product5.cantidad += carrito1[elim].cantidad   
-        }
+       elim -= 1;
+       productos[elim].cantidad += carrito1[elim].cantidad;
        carrito1.splice(elim,1);
+       carrito.splice(0,carrito.length);
        break;
 
-    case 5:
-          if (carrito.length == 0){
+    case 7:
+          if (carrito1.length == 0){
           alert("No hay productos en el carrito")
           break;
           }
+          mostrar(carrito, carrito1);
           alert(carrito.join(""));
+          
 
           pago = prompt("Escriba la palabra segun el metodo de pago que desea usar, Debito, Credito");
          
@@ -130,13 +133,13 @@ switch (numMenu) {
         }
       break;
     
-    case 6:
+    case 8:
       alert("Hasta luego vuelve cuando quieras")
       break;
 
 }
 
-  } while (numMenu !== 6)
+  } while (numMenu !== 8)
 
 
   
