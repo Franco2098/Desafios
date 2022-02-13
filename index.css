@@ -1,0 +1,18 @@
+
+.productStyle{
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.productStyle .card{
+    margin: 10px;
+}
+
+.imagen{
+    height: 300px;
+}
+
+.imagen img{object-fit: cover};
+

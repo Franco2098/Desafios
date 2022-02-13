@@ -1,17 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola mundo</title>
-</head>
-<body>
-    <hi>
-        Entrega Funciones de orden superior
-    </hi>
-    <script src="baseDeDatos.js"></script>
-    <script src="funciones.js"></script>
-    <script src="main.js"></script>
-</body>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">TENNO GAMES</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="Dropdown" aria-expanded="false">Categoria</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="Dropdown" aria-expanded="false">Plataforma</a>
+                      </li>                     
+                    </ul> 
+                    <form class="d-flex">
+                    <i class="fas fa-shopping-cart fa-lg fa-inverse" style="margin-right: 20px; margin-top: 8px;"></i>                                                       
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div id = "Productos" ></div>
+                </div>
+            </div>
+        </main>
+        <footer class="text-center text-lg-start bg-dark text-muted">
+    
+    <section
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+       
+      <div class ="offset-md-10">
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      
+    </section>
+    
+  
+    
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        
+        <div class="row">
+          
+          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-2">
+              <i class="fas fa-gem me-3"></i>Tenno Games
+            </h6>
+          </div>
+          
+  
+          
+          <div class="col-md-6 col-lg-2 col-xl-4 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-6">
+             Terminos y Condiciones
+            </h6>
+          </div>
+          
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contacto
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Argentina, Córdoba</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              francodlopez98@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> 3518382910</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+    
+  
+    
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">TENNO GAMES</a>
+    </div>
+    
+  </footer>
+        <script src="baseDeDatos.js"></script>
+        <script src="funciones.js"></script>
+        <script src="main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
 </html>
