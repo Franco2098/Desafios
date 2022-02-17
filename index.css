@@ -1,12 +1,12 @@
 
-.productStyle{
+#productStyle{
     display:flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
 }
 
-.productStyle .card{
+#productStyle .card{
     margin: 10px;
 }
 
@@ -15,4 +15,7 @@
 }
 
 .imagen img{object-fit: cover};
+
+
+ 
 
