@@ -24,7 +24,6 @@ const mostrar = (array1) => {
 }
 
 
-
 let error1 = document.getElementById("cuerpo");
 
 
@@ -41,4 +40,41 @@ const error = (imag) => {
   
 }
 
-
+const AñadirCarrito = () => {
+  let carro = document.getElementsByClassName("btn btn-primary");
+  for (cart of carro) {
+    cart.addEventListener("click", e => {
+    if ((itemsCarrito !== null) && (itemsCarrito.find(product => `boton${product.id}` == e.target.id)) !== undefined) {
+      e.target.innerText = "En Carrito";
+      e.target.disabled = true;
+    }
+    else {
+      e.target.innerText = "Producto Añadido";
+      e.target.disabled = true;
+      const selected = productos.find(product => `boton${product.id}` == e.target.id);
+      nuevoArray2.push(selected);
+      if (itemsCarrito !== null) {
+        itemsCarrito.push(selected)
+        localStorage.setItem("carro", JSON.stringify(itemsCarrito));
+        itemsCarrito = JSON.parse(localStorage.getItem("carro"));
+        let contador = document.getElementById("circulo");
+        let cont = document.createElement("b");
+        cont.innerHTML = itemsCarrito.length;
+        $("#circulo").empty();
+        contador.appendChild(cont);
+        localStorage.setItem("cont", JSON.stringify(itemsCarrito.length));
+      } 
+      else{
+        localStorage.setItem("carro", JSON.stringify(nuevoArray2));
+        itemsCarrito = JSON.parse(localStorage.getItem("carro"));
+        let contador = document.getElementById("circulo");
+        let cont = document.createElement("b");
+        cont.innerHTML = nuevoArray2.length;
+        $("#circulo").empty();
+        contador.appendChild(cont);
+        localStorage.setItem("cont", JSON.stringify(nuevoArray2.length));
+      }
+    }
+    })
+  }
+}

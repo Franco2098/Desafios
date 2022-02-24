@@ -1,14 +1,23 @@
 
 mostrar(productos);
 
+if ( itemsCarrito !== null) {
+  let contador = document.getElementById("circulo");
+  let cont = document.createElement("b");
+  cont.innerHTML = itemsCarrito.length;
+  contador.appendChild(cont);
+}
+
+
 //Filtra por categoria
 
 let categoria = document.getElementsByClassName("dropdown-item");
 for (cat of categoria) {
-  cat.addEventListener("click", e => { 
+  cat.addEventListener("click", e => {
   $("#productStyle").empty();
   const selected = productos.filter(product => product.categoria == e.target.id);
   mostrar(selected);
+  AñadirCarrito()
   })
 }
 
@@ -23,51 +32,21 @@ for (plat of plataforma) {
       if (l == e.target.id){
         nuevoArray.push(el);
       } 
-     }
-   }
+    }
+  }
   )
-mostrar(nuevoArray);
-nuevoArray.splice(0,nuevoArray.length);
+  mostrar(nuevoArray);
+  nuevoArray.splice(0,nuevoArray.length);
+  AñadirCarrito()
   })
 }
+  
+
 
 // Añadir al carrito
 
-let carro = document.getElementsByClassName("btn btn-primary");
-for (cart of carro) {
-  cart.addEventListener("click", e => {
-  e.target.innerText = "Producto Añadido";
-  e.target.disabled = true;
-  const selected = productos.find(product => `boton${product.id}` == e.target.id);
-  nuevoArray2.push(selected);
-  let contador = document.getElementById("circulo");
-  let cont = document.createElement("b");
-  cont.innerHTML = nuevoArray2.length;
-  $("#circulo").empty();
-  contador.appendChild(cont);
-  })
-}
 
-// Mostrar Carrito
-
-let mostCarro = document.getElementById("car");
-  mostCarro.addEventListener("click", () => { 
-  if (nuevoArray2.length > 0){
-  $("#productStyle").empty();
-  mostrar(nuevoArray2);
-  let carro1 = document.getElementsByClassName("btn btn-primary");
-  for (car1 of carro1) {
-  car1.innerText = "Quitar del Carrito"
-  } 
-  }
-  
-  else{
-    $("#productStyle").empty();
-    $("#cuerpo").empty();
-    error("./imag/remove.png")
-    
-  }
-})
+AñadirCarrito()
 
 
 //Barra de busqueda
@@ -83,8 +62,8 @@ buscar.addEventListener("click", () => {
   if (selected1.length > 0){
     $("#productStyle").empty();
     $("#cuerpo").empty();
-    console.log(selected1)
     mostrar(selected1)
+    AñadirCarrito()
   }
   else{
     $("#productStyle").empty();
@@ -94,3 +73,4 @@ buscar.addEventListener("click", () => {
   }
   
 })
+

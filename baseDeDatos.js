@@ -11,3 +11,5 @@ const productos = [{id: 1, nombre: "Grand Theft Auto V", plataforma: ["PS4","PC"
 
 let nuevoArray = []
 let nuevoArray2 = []
+
+let itemsCarrito = JSON.parse(localStorage.getItem("carro"));
