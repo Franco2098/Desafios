@@ -1,6 +1,8 @@
 
 mostrar(productos);
 
+//Consulta si hay productos en el carrito y notifica la cantidad
+
 if ( itemsCarrito !== null) {
   let contador = document.getElementById("circulo");
   let cont = document.createElement("b");
