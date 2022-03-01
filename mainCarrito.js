@@ -3,7 +3,7 @@ itemsCarrito = JSON.parse(localStorage.getItem("carro"));
 
 // Consulta si hay items en el carrito y los muestra 
 
-if ( itemsCarrito !== null) {
+if (itemsCarrito !== null) {
     mostrar1(itemsCarrito);
     let contador = document.getElementById("circulo");
     let cont = document.createElement("b");

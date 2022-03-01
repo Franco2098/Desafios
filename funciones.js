@@ -3,7 +3,7 @@ let lista1 = document.getElementById("Productos");
 
 const mostrar = (array1) => {
     for (const product of array1){
-      if ((itemsCarrito !== null) && (itemsCarrito.find(product1 => product1.id == product.id)) !== undefined) {
+      ((itemsCarrito !== null) && (itemsCarrito.find(product1 => product1.id == product.id)) !== undefined) ?
         lista.innerHTML += `
         <div class="card" style="width: 18rem;">
           <div class="imagen">
@@ -18,9 +18,10 @@ const mostrar = (array1) => {
             <li class="list-group-item">Categoria: ${product.categoria}</li>
             <button disabled = true id= "boton${product.id}" href="#" class="btn btn-primary">En Carrito</button>
           </ul>
-        </div>`;
-      }
-      else{
+        </div>` 
+      
+      :
+      
         lista.innerHTML += `
         <div class="card" style="width: 18rem;">
           <div class="imagen">
@@ -35,8 +36,8 @@ const mostrar = (array1) => {
             <li class="list-group-item">Categoria: ${product.categoria}</li>
             <button id= "boton${product.id}" href="#" class="btn btn-primary">Añadir al Carrito</button>
           </ul>
-        </div>`;
-      }
+        </div>`
+      
 
     }
     lista1.append(lista);
@@ -70,7 +71,7 @@ const AñadirCarrito = () => {
     nuevoArray2.push(selected);
     if (itemsCarrito !== null) {
       itemsCarrito.push(selected)
-      localStorage.setItem("carro", JSON.stringify(itemsCarrito));
+      localStorage.setItem("carro", JSON.stringify(itemsCarrito)); 
       itemsCarrito = JSON.parse(localStorage.getItem("carro"));
       let contador = document.getElementById("circulo");
       let cont = document.createElement("b");
@@ -78,8 +79,10 @@ const AñadirCarrito = () => {
       $("#circulo").empty();
       contador.appendChild(cont);
       localStorage.setItem("cont", JSON.stringify(itemsCarrito.length));
-    } 
-    else{
+    
+    }
+    else {
+
       localStorage.setItem("carro", JSON.stringify(nuevoArray2));
       itemsCarrito = JSON.parse(localStorage.getItem("carro"));
       let contador = document.getElementById("circulo");
@@ -89,7 +92,6 @@ const AñadirCarrito = () => {
       contador.appendChild(cont);
       localStorage.setItem("cont", JSON.stringify(nuevoArray2.length));
     }
-    
     })
   }
 }
@@ -120,3 +122,17 @@ const mostrar1 = (array1) => {
     lista3.append(lista2);
     lista2.id = "productStyle1";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
