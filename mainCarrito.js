@@ -12,6 +12,7 @@ if ( itemsCarrito !== null) {
 }
 else{
   error("./imag/remove.png")
+  document.getElementById("Terminar").style.display = "none";
 }
 
 //Eliminar productos del carrito
@@ -35,4 +36,20 @@ for (car1 of carro1) {
 })
 }
 
+// Alert de compra finalizada. Vacia el storage y redirecciona a la pagina principal despues de 3 seg.
+
+const ter = () => {
+    Swal.fire({
+        title: 'Genial!',
+        text: 'Tu compra se realizo con exito',
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false
+    }).then(function() {
+        window.location = "./index.html";
+    
+})
+    localStorage.clear()
+    
+}
 
