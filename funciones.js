@@ -48,8 +48,8 @@ let error1 = document.getElementById("cuerpo");
 
 
 const error = (imag) => {
-  let divContainer = document.createElement("div")
-  divContainer.style = "display: flex; justify-content: center; align-items: center; flex-direction: column; align-content: center; margin-top: 500px;"
+  let divContainer = document.createElement("div");
+  divContainer.id = "error"
   let img = document.createElement("img")
   img.src = imag
   let titulo = document.createElement("h1")
@@ -60,13 +60,13 @@ const error = (imag) => {
   
 }
 
-const AñadirCarrito = () => {
+const AñadirCarrito = (dat) => {
   let carro = document.getElementsByClassName("btn btn-primary");
   for (cart of carro) {
     cart.addEventListener("click", e => {
     e.target.innerText = "Producto Añadido";
     e.target.disabled = true;
-    const selected = productos.find(product => `boton${product.id}` == e.target.id);
+    const selected = dat.find(product => `boton${product.id}` == e.target.id);
     nuevoArray2.push(selected);
     if (itemsCarrito !== null) {
       itemsCarrito.push(selected)

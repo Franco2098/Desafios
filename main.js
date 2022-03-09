@@ -1,5 +1,9 @@
+fetch('base.json')
+    .then( (res) => res.json())
+    .then( (data) => {
 
-mostrar(productos);
+mostrar(data);
+    
 
 //Consulta si hay productos en el carrito y notifica la cantidad
 
@@ -17,9 +21,10 @@ let categoria = document.getElementsByClassName("dropdown-item");
 for (cat of categoria) {
   cat.addEventListener("click", e => {
   $("#productStyle").empty();
-  const selected = productos.filter(product => product.categoria == e.target.id);
+  const selected = data.filter(product => product.categoria == e.target.id);
   mostrar(selected);
-  AñadirCarrito()
+  AñadirCarrito(data)
+    
   })
 }
 
@@ -29,7 +34,7 @@ let plataforma = document.getElementsByClassName("dropdown-item 1");
 for (plat of plataforma) {
   plat.addEventListener("click", e => { 
   $("#productStyle").empty();
-  const recorrer = productos.map((el) => {
+  data.map((el) => {
     for (let l of el.plataforma){
       if (l == e.target.id){
         nuevoArray.push(el);
@@ -39,7 +44,8 @@ for (plat of plataforma) {
   )
   mostrar(nuevoArray);
   nuevoArray.splice(0,nuevoArray.length);
-  AñadirCarrito()
+  AñadirCarrito(data)
+  
   })
 }
   
@@ -48,7 +54,7 @@ for (plat of plataforma) {
 // Añadir al carrito
 
 
-AñadirCarrito()
+AñadirCarrito(data)
 
 
 //Barra de busqueda
@@ -56,16 +62,16 @@ AñadirCarrito()
 let teclado = document.getElementById("buscador");
 let buscar = document.getElementById("buscador2");
 buscar.addEventListener("click", () => {
-  const selected1 = productos.filter(item => {
+  const selected1 = data.filter(item => {
     if (item.nombre.toLowerCase().includes(teclado.value.toLowerCase())){
       return item
     }
-  });
+  })
   if (selected1.length > 0){
     $("#productStyle").empty();
     $("#cuerpo").empty();
     mostrar(selected1)
-    AñadirCarrito()
+    AñadirCarrito(data)
   }
   else{
     $("#productStyle").empty();
@@ -76,3 +82,15 @@ buscar.addEventListener("click", () => {
   
 })
 
+
+})
+
+.catch( () => {
+  let error = document.getElementById("cuerpo");
+  let error404 = document.createElement("div")
+  error404.id = "error"
+  let img = document.createElement("img")
+  img.src = "./imag/error-404.JPG"
+  error404.append(img)
+  error.append(error404)
+})
