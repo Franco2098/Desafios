@@ -1,4 +1,4 @@
-fetch('base.json')
+fetch('base.JSON')
     .then( (res) => res.json())
     .then( (data) => {
 
@@ -50,7 +50,6 @@ for (plat of plataforma) {
 }
   
 
-
 // Añadir al carrito
 
 
@@ -85,3 +84,12 @@ buscar.addEventListener("click", () => {
 
 })
 
+.catch( () => {
+  let error = document.getElementById("cuerpo");
+  let error404 = document.createElement("div")
+  error404.id = "error"
+  let img = document.createElement("img")
+  img.src = "./imag/error-404.JPG"
+  error404.append(img)
+  error.append(error404)
+})
