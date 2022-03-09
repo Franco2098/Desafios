@@ -1,4 +1,4 @@
-fetch('base.JSON')
+fetch('base.json')
     .then( (res) => res.json())
     .then( (data) => {
 
