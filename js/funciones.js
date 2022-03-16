@@ -1,3 +1,8 @@
+let nuevoArray = []
+let nuevoArray2 = []
+
+let itemsCarrito = JSON.parse(localStorage.getItem("carro"));
+
 let lista = document.createElement("div");
 let lista1 = document.getElementById("Productos");
 

@@ -1,4 +1,4 @@
-fetch('base.json')
+fetch('baseDeDatos.json')
     .then( (res) => res.json())
     .then( (data) => {
 
@@ -89,7 +89,7 @@ buscar.addEventListener("click", () => {
   let error404 = document.createElement("div")
   error404.id = "error"
   let img = document.createElement("img")
-  img.src = "./imag/error-404.JPG"
+  img.src = "./asset/error-404.JPG"
   error404.append(img)
   error.append(error404)
 })
